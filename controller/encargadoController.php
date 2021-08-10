@@ -2,13 +2,18 @@
 
     include 'conexion.php';
 
-    $nombres = $_POST['name'];
-    $apellidos = $_POST['lastname'];
-    $fechaNac = $_POST['birth'];
-    $correo = $_POST['email'];
-    $clave = $_POST['password'];
+    
+        $NomEnc=$_POST['nomEnc'];
+        $ApeEnc=$_POST['ApeEnc'];
+        $FecNacEnc=$_POST['FecNacEnc'];
+        $TelEnc=$_POST['TelEnc'];
+        $NumDocEnc=$_POST['NumDocEnc'];
+        $CorEnc=$_POST['CorEnc'];
+        $ConEnc=$_POST['ConEnc'];
+        $TipoDoc=$_POST['TipoDoc'];
 
-    $query = "CALL crearEncargado ('$nombres', '$apellidos', '$fechaNac', '$correo', '$clave');";
+
+        $query = "CALL crearEncargado ('$NomEnc', '$ApeEnc', '$FecNacEnc', '$TelEnc', '$NumDocEnc','$CorEnc', '$ConEnc', '$TipoDoc');";
 
     $execute = mysqli_query($conexion, $query);
 
@@ -16,7 +21,7 @@
         echo '
         <script>
             alert("Usuario registrado exitosamente");
-            window.location = "../index.php";
+            window.location = "../view/indexEncargado.php";
         </script>        
         ';
     }else{
